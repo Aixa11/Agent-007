@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: PolicyBaseline
+metadata:
+  name: iam-baseline
+  version: 1.0.0
+  owner: secure-architect-agent
+spec:
+  purpose: >
+    Define a minimal IAM baseline focused on least privilege, separation of duties,
+    and safe default access patterns for infrastructure and application workloads.
+
+  principles:
+    - leastPrivilege
+    - roleBasedAccess
+    - shortLivedCredentials
+    - separationOfDuties
+    - explicitExceptions
+    - auditableChanges
+
+  requirements:
+    rootAccount:
+      mfaRequired: true
+      accessKeysForbidden: true
+      dailyUseForbidden: true
+
+    humanAccess:
+      useRoles: true
+      directAdminAccessRestricted: true
+      mfaRequiredForPrivilegedUsers: true
+      justInTimeAccessPreferred: true
+
+    workloadAccess:
+      useRoles: true
+      longTermStaticCredentialsForbidden: true
+      scopedPermissionsRequired: true
+
+    policies:
+      wildcardActionsForbidden: true
+      wildcardResourcesDiscouraged: true
+      adminPoliciesRequireJustification: true
+      customPoliciesMustBeReviewed: true
+
+    reviews:
+      periodicAccessReviewRequired: true
+      privilegeEscalationLogged: true
+      exceptionExpirationRequired: true
+
+  controls:
+    - id: IAM-001
+      name: Least privilege enforcement
+      description: Grant only the permissions required for the task.
+    - id: IAM-002
+      name: Role-based access
+      description: Prefer roles over long-lived user credentials.
+    - id: IAM-003
+      name: MFA for privileged access
+      description: Require MFA for privileged human access.
+    - id: IAM-004
+      name: Access key hygiene
+      description: Avoid static access keys whenever possible.
+    - id: IAM-005
+      name: Access review cadence
+      description: Review privileged access on a scheduled basis.
+
+  exceptions:
+    allowed:
+      - breakGlassAccess
+      - controlledLegacyIntegration
+    rules:
+      - Must be documented.
+      - Must have an owner.
+      - Must have an expiration date.
+      - Must be reviewed regularly.
+
+  validationHints:
+    - Check for overbroad actions like "*".
+    - Check for overbroad resources like "*".
+    - Check whether human users are mapped to roles.
+    - Check whether root use is avoided.
+    - Check whether exceptions are explicitly justified.

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/finding.schema.json",
+  "title": "Secure Architect Agent Finding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "severity",
+    "category",
+    "description",
+    "recommendation"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable finding identifier."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Short human-readable finding title."
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "description": "Impact severity."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "security",
+        "architecture",
+        "maintainability",
+        "operational",
+        "compliance",
+        "documentation"
+      ],
+      "description": "Finding category."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Detailed explanation of the issue."
+    },
+    "recommendation": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Minimal recommended change."
+    },
+    "impact": {
+      "type": "string",
+      "description": "Expected impact if the recommendation is applied."
+    },
+    "compatibilityImpact": {
+      "type": "string",
+      "description": "Effect on the existing pipeline or architecture."
+    },
+    "validationNotes": {
+      "type": "array",
+      "description": "Notes on how to validate the finding or proposed fix.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "references": {
+      "type": "array",
+      "description": "Optional file or design references.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

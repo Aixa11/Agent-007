@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: PolicyBaseline
+metadata:
+  name: encryption-baseline
+  version: 1.0.0
+  owner: secure-architect-agent
+spec:
+  purpose: >
+    Define a minimal encryption baseline for data at rest, in transit,
+    and for sensitive secrets handled by the platform.
+
+  principles:
+    - encryptByDefault
+    - protectSecrets
+    - strongKeyManagement
+    - secureTransport
+    - minimizePlaintext
+    - reviewKeyAccess
+
+  requirements:
+    dataAtRest:
+      encryptionRequired: true
+      defaultEncryptionPreferred: true
+      sensitiveDataEncryptionMandatory: true
+
+    dataInTransit:
+      tlsRequired: true
+      minimumTlsVersion: "1.2"
+      insecureProtocolsForbidden: true
+
+    secrets:
+      secretsInSourceForbidden: true
+      secretsManagerPreferred: true
+      plaintextSecretsInConfigForbidden: true
+
+    keyManagement:
+      managedKeysPreferred: true
+      keyAccessRestricted: true
+      keyRotationPolicyRequired: true
+      keyUsageAudited: true
+
+    storage:
+      versioningPreferred: true
+      backupEncryptionRequired: true
+      snapshotEncryptionRequired: true
+
+  controls:
+    - id: ENC-001
+      name: Encryption at rest
+      description: Encrypt stored sensitive data by default.
+    - id: ENC-002
+      name: Encryption in transit
+      description: Use TLS for all network communication handling sensitive data.
+    - id: ENC-003
+      name: Secrets protection
+      description: Keep secrets out of source code and plain configuration.
+    - id: ENC-004
+      name: Key governance
+      description: Restrict and audit access to encryption keys.
+    - id: ENC-005
+      name: Rotation policy
+      description: Rotate keys according to documented policy.
+
+  exceptions:
+    allowed:
+      - legacySystemException
+    rules:
+      - Must be explicitly approved.
+      - Must be documented.
+      - Must have a mitigation plan.
+      - Must have an expiration date.
+
+  validationHints:
+    - Check that storage is encrypted by default.
+    - Check that TLS is required.
+    - Check that plaintext secrets are not committed.
+    - Check that key access is limited and audited.
+    - Check that exceptions are rare and documented.
