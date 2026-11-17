@@ -20,6 +20,24 @@ Secure Architect Agent is a self-contained open-source project designed to help 
 
 It is built for systems that already exist, already matter, and cannot be casually rewritten. The goal is to preserve what works, reduce risk, and improve security and governance step by step.
 
+## Agent 007 Plus
+
+The open release stays here, under Apache 2.0. Plus is the paid control plane: a supervisor the agent cannot switch off, an evaluation the author cannot grant itself, rule packs in layers, and a stop switch outside the sandbox.
+
+The offer, the prices, and the license request live in a public repository that does not contain the product:
+
+[Aixa11/agent-007-plus](https://github.com/Aixa11/agent-007-plus)
+
+A payment does not unlock a folder. GitHub grants a whole repository or nothing. After the invoice is paid, the GitHub user is invited to exactly one private repository:
+
+| License | Price | What opens |
+| --- | --- | --- |
+| Layers | 1,800 USD / year | Rule packs only. No runtime, no console, no isolation profiles. |
+| Individual | 2,400 USD / year | The complete project, for one person. |
+| Organization | 12,000 USD / year | The complete project for one entity, plus one new rule pack that year. |
+
+Request a license from the offer repository. This README is the public door. It is not the checkout.
+
 ## Why it exists
 
 Many AI coding assistants are optimized to generate code quickly, but not to preserve architectural continuity. In real systems, that often leads to oversized refactors, broken assumptions, and unnecessary operational risk.
