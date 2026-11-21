@@ -2,16 +2,25 @@
   <img src="./assets/hero-banner.png" alt="Agent 007. Incremental review of infrastructure that already exists. No rewrite." width="100%" />
 </p>
 
-<h1 align="center">Agent 007: incremental infrastructure review</h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/license-Apache%202.0-1c1f24?style=flat-square" alt="Apache 2.0" />
+</p>
+
+<h1 align="center">Agent 007</h1>
 
 <p align="center">
   <strong>Reads what already exists · Marks the risk · Proposes the smallest compatible change · Does not rewrite the system</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Aixa11/agent-007-plus">Plus</a> ·
-  <a href="./agent/rules.md">Rules</a> ·
-  <a href="./examples">Examples</a> ·
+  <a href="https://github.com/Aixa11/agent-007-plus">Plus</a>
+  ·
+  <a href="./agent/rules.md">Rules</a>
+  ·
+  <a href="./examples">Examples</a>
+  ·
+  <a href="./docs">Docs</a>
+  ·
   <a href="./LICENSE">License</a>
 </p>
 
