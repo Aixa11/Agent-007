@@ -1,24 +1,29 @@
-﻿<p align="center">
-  <img src="./assets/hero-banner.png" alt="Secure Architect Agent" width="80%" />
+<p align="center">
+  <img src="./assets/hero-banner.png" alt="Agent 007. Incremental review of infrastructure that already exists. No rewrite." width="100%" />
 </p>
 
-# Secure Architect Agent
-
-> Fortified Cookie Stack for incremental infrastructure analysis, security hardening, and compatibility-preserving improvement.
+<h1 align="center">Agent 007: incremental infrastructure review</h1>
 
 <p align="center">
-  <strong>
-    An open-source AI agent for analyzing existing infrastructure, identifying security and architectural risks, and proposing incremental improvements without breaking historical compatibility.
-  </strong>
+  <strong>Reads what already exists · Marks the risk · Proposes the smallest compatible change · Does not rewrite the system</strong>
 </p>
 
----
+<p align="center">
+  <a href="https://github.com/Aixa11/agent-007-plus">Plus</a> ·
+  <a href="./agent/rules.md">Rules</a> ·
+  <a href="./examples">Examples</a> ·
+  <a href="./LICENSE">License</a>
+</p>
 
-## What this project is
+## What is Agent 007?
 
-Secure Architect Agent is a self-contained open-source project designed to help teams improve existing infrastructure with a conservative, incremental approach.
+Agent 007 reviews infrastructure that already exists and already matters. It marks the risk and proposes the smallest change that still fits the system. It is not an engine that rewrites the repository.
 
-It is built for systems that already exist, already matter, and cannot be casually rewritten. The goal is to preserve what works, reduce risk, and improve security and governance step by step.
+The review happens in three steps:
+
+1. **Read** the repository that is already there.
+2. **Mark** the architectural, operational, and security risks a rule can point to.
+3. **Propose** a compatible improvement and validate it locally before anyone applies it.
 
 ## Agent 007 Plus
 
